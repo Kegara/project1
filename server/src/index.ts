@@ -198,15 +198,3 @@ app.get("/api/races/stats", (_req: Request, res: Response) => {
 // Default export for Vercel serverless
 // =============================================
 export default app;
-
-// =============================================
-// Server startup (local development only)
-// =============================================
-if (require.main === module) {
-  app.listen(PORT, () => {
-    console.log(
-      `🐌 Snail Races Express server running on http://localhost:${PORT}`,
-    );
-    console.log(`💳 SnailPay API available at POST /api/snailpay/charge`);
-  });
-}
