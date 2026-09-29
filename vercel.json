@@ -1,29 +1,24 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "builds": [
-    {
-      "src": "server/src/index.ts",
-      "use": "@vercel/node"
+  "services": {
+    "client": {
+      "root": "client",
+      "framework": "vite"
     },
-    {
-      "src": "client/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist"
-      }
+    "server": {
+      "root": "server",
+      "framework": "express",
+      "entrypoint": "src/index.ts"
     }
-  ],
-  "routes": [
+  },
+  "rewrites": [
     {
-      "src": "/api/(.*)",
-      "dest": "/server/src/index.ts"
+      "source": "/api/:path*",
+      "destination": { "service": "server" }
     },
     {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/client/$1"
+      "source": "/(.*)",
+      "destination": { "service": "client" }
     }
   ]
 }
