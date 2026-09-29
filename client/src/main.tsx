@@ -1,10 +1,9 @@
-﻿async function fetchMessage() {
-  try {
-    const response = await fetch('/api/hello');
-    const data = await response.json();
-    document.getElementById('message').textContent = data.message;
-  } catch (error) {
-    document.getElementById('message').textContent = 'Error fetching data';
-  }
-}
-fetchMessage();
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App'
+
+ReactDOM.createRoot(document.getElementById('app')!).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+)
