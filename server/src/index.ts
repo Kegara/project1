@@ -1,7 +1,7 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
 import { snails, betStats, raceHistory } from "./store";
-import { SnailPayChargeRequest, SnailPayChargeResponse } from "./types";
+import type { SnailPayChargeRequest, SnailPayChargeResponse } from "./types";
 
 const app = express();
 
@@ -196,4 +196,9 @@ app.get("/api/races/stats", (_req: Request, res: Response) => {
 // =============================================
 // Default export for Vercel serverless
 // =============================================
+if (!process.env.VERCEL) {
+  const port = Number(process.env.PORT) || 3001;
+  app.listen(port, () => console.log(`Server on http://localhost:${port}`));
+}
+
 export default app;
