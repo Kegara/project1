@@ -48,7 +48,7 @@ const ERROR_CARDS: Record<string, { statusDetail: string; errorCode: string }> =
  * Mock payment gateway endpoint. Validates card data and returns
  * deterministic results based on fixed test card numbers.
  */
-app.post("/snailpay/charge", (req: Request, res: Response) => {
+app.post("/api/snailpay/charge", (req: Request, res: Response) => {
   const { idUser, email, cardNumber, expiry, cvv, fullName, amount } =
     req.body as SnailPayChargeRequest;
 
@@ -184,7 +184,7 @@ app.post("/snailpay/charge", (req: Request, res: Response) => {
 // =============================================
 // RACES & STATS (unchanged)
 // =============================================
-app.get("/races/stats", (_req: Request, res: Response) => {
+app.get("/api/races/stats", (_req: Request, res: Response) => {
   res.json({
     snails,
     betStats,
