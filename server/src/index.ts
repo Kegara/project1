@@ -4,7 +4,6 @@ import { snails, betStats, raceHistory } from "./store";
 import { SnailPayChargeRequest, SnailPayChargeResponse } from "./types";
 
 const app = express();
-const PORT = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(express.json());
