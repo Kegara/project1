@@ -6,6 +6,7 @@
       "root": "server",
       "framework": "express",
       "entrypoint": "src/index.ts",
+      "outputDirectory": ".",
       "functions": {
         "src/index.ts": {
           "includeFiles": "node_modules/**"
