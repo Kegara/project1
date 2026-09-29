@@ -2,7 +2,7 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "builds": [
     {
-      "src": "api/index.ts",
+      "src": "server/src/index.ts",
       "use": "@vercel/node"
     },
     {
@@ -15,8 +15,8 @@
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
-      "dest": "/api/index.ts"
+      "src": "/(.*)",
+      "dest": "/server/src/index.ts"
     },
     {
       "handle": "filesystem"
